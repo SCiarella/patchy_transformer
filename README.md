@@ -1,0 +1,1 @@
+python main.py --beta 1 --n 1000 --q 3 --T 0.75 --net made --net_depth 1 --net_width 1 --beta_anneal 0.98 --clip_grad 1 --bias --cuda 1 --ARtype maxlike --lr 0.001 --batch_size 512 --print_step 10 --lr_schedule --max_step 1000000

@@ -52,3 +52,4 @@ submit-plot-observables.sh
 submit-sampling-generation.sh
 tts_gan.py
 visualize.py
+nohup*

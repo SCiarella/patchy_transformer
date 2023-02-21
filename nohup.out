@@ -4409,3 +4409,675 @@ step = 1600, F = -0.6831, S/N = 1.166, E(generated)/N = 0.48286, E(ref)/N = 0.25
 average density of zeros=0.233	ones=0.291	twos=0.475
 14/512 samples conserved the density
 step = 1800, F = -0.6651, S/N = 1.16, E(generated)/N = 0.49472, E(ref)/N = 0.25868, E(equi)/N = 0.26, lr = 0.000922, beta = 1.33, T=0.75, sample_time = 0.927, loss = 0.627, val_loss = 0, train_time = 0.072, used_time = 1513.907
+n = 1000
+q = 3
+c = 40
+graph_seed = None
+beta = 1.0
+T = 0.75
+ARtype = maxlike
+net = nade
+net_depth = 3
+net_width = 64
+graph_depth = 3
+nheads = 2
+hid_width = 150
+half_kernel_size = 1
+res_block = False
+final_conv = False
+regularization = None
+lambdal1 = 1e-06
+lambdal2 = 1e-06
+dropout_val = 0.1
+dtype = float32
+bias = True
+acceptance = False
+qsym = False
+site_ordering = False
+sample_permute = False
+x_hat_clip = 0
+epsilon = 1e-07
+M = 1000
+MCsteps = 25000
+seed = 15687341
+optimizer = adam
+batch_size = 512
+sample_size = 1000
+val_sample_size = 1000
+samples_for_autocorr = 1000
+globMC = None
+lr = 0.001
+max_step = 1000000
+lr_schedule = True
+early_stopping = False
+beta_anneal = 0
+clip_grad = 1.0
+no_stdout = False
+clear_checkpoint = False
+print_step = 200
+save_step = 500
+visual_step = 100
+save_sample = False
+print_sample = 1
+print_grad = False
+cuda = 7
+out_infix = _2e10
+out_dir = out
+start_from = 0
+device = cuda:0
+out_filename = out/1000_None_beta1_maxlike_nd3_nw64_nade_bias_lrs_cg1_2e10/out
+
+Transformer(
+  (embedding): Embedding(5, 1024)
+  (pos_encoder): PositionalEncoding(
+    (dropout): Dropout(p=0.1, inplace=False)
+  )
+  (transformer_encoder): TransformerEncoder(
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+        )
+        (linear1): Linear(in_features=1024, out_features=1024, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=1024, out_features=1024, bias=True)
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+        )
+        (linear1): Linear(in_features=1024, out_features=1024, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=1024, out_features=1024, bias=True)
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (transformer_decoder): TransformerDecoder(
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+        )
+        (multihead_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+        )
+        (linear1): Linear(in_features=1024, out_features=1024, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=1024, out_features=1024, bias=True)
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (norm3): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+        )
+        (multihead_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+        )
+        (linear1): Linear(in_features=1024, out_features=1024, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=1024, out_features=1024, bias=True)
+        (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (norm3): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (fc): Linear(in_features=1024, out_features=5, bias=True)
+)
+
+Total number of trainable parameters: 33617925
+init_time = 2.393
+
+*** Patch size 5 from a box of size 10
+%%%% Loading the full sample
+*** Equilibrium E/N=0.2600036859512329
+## I ordered the sites in the following way:
+[0, 25, 50, 75, 100, 5, 30, 55, 80, 105, 10, 35, 60, 85, 110, 15, 40, 65, 90, 115, 20, 45, 70, 95, 120, 4, 29, 54, 79, 104, 9, 34, 59, 84, 109, 14, 39, 64, 89, 114, 19, 44, 69, 94, 119, 24, 49, 74, 99, 124, 1, 26, 51, 76, 101, 21, 46, 71, 96, 121, 2, 27, 52, 77, 102, 22, 47, 72, 97, 122, 3, 28, 53, 78, 103, 23, 48, 73, 98, 123, 6, 106, 11, 111, 16, 116, 7, 107, 12, 112, 17, 117, 8, 108, 13, 113, 18, 118, 62, 61, 63, 57, 67, 37, 87, 32, 82, 42, 92, 36, 86, 38, 88, 56, 66, 58, 68, 31, 81, 41, 91, 33, 83, 43, 93]
+storing info
+Preparing validation sample...
+The validation patches have E/N=0.2608506977558136
+Training...
+
+average density of zeros=0.465	ones=0.341	twos=0.194
+0/512 samples conserved the density
+step = 0, F = -1.194, S/N = 2.317, E(generated)/N = 1.1233, E(ref)/N = 0.26548, E(equi)/N = 0.26, lr = 0.001, beta = 0, T=1e+06, sample_time = 4.879, loss = 2.63, val_loss = 0, train_time = 0.540, used_time = 5.421
+
+average density of zeros=0.224	ones=0.272	twos=0.504
+8/512 samples conserved the density
+step = 200, F = 0.4588, S/N = 1.12, E(generated)/N = 1.5789, E(ref)/N = 0.2581, E(equi)/N = 0.26, lr = 0.000999, beta = 1.33, T=0.75, sample_time = 1.136, loss = 1.19, val_loss = 0, train_time = 0.560, used_time = 345.168
+
+average density of zeros=0.278	ones=0.283	twos=0.439
+10/512 samples conserved the density
+step = 400, F = 0.3563, S/N = 1.176, E(generated)/N = 1.5325, E(ref)/N = 0.26461, E(equi)/N = 0.26, lr = 0.000996, beta = 1.33, T=0.75, sample_time = 1.123, loss = 1.18, val_loss = 0, train_time = 0.567, used_time = 683.128
+
+average density of zeros=0.263	ones=0.306	twos=0.431
+4/512 samples conserved the density
+step = 600, F = 0.4478, S/N = 1.171, E(generated)/N = 1.6185, E(ref)/N = 0.25817, E(equi)/N = 0.26, lr = 0.000991, beta = 1.33, T=0.75, sample_time = 1.114, loss = 1.18, val_loss = 0, train_time = 0.567, used_time = 1019.734
+
+average density of zeros=0.291	ones=0.295	twos=0.414
+9/512 samples conserved the density
+step = 800, F = 0.3586, S/N = 1.193, E(generated)/N = 1.5514, E(ref)/N = 0.25839, E(equi)/N = 0.26, lr = 0.000984, beta = 1.33, T=0.75, sample_time = 1.118, loss = 1.19, val_loss = 0, train_time = 0.567, used_time = 1356.819
+
+average density of zeros=0.268	ones=0.281	twos=0.451
+6/512 samples conserved the density
+step = 1000, F = 0.391, S/N = 1.172, E(generated)/N = 1.5629, E(ref)/N = 0.2581, E(equi)/N = 0.26, lr = 0.000975, beta = 1.33, T=0.75, sample_time = 1.107, loss = 1.18, val_loss = 0, train_time = 0.567, used_time = 1691.697
+
+average density of zeros=0.27	ones=0.286	twos=0.444
+5/512 samples conserved the density
+step = 1200, F = 0.4093, S/N = 1.167, E(generated)/N = 1.5768, E(ref)/N = 0.25911, E(equi)/N = 0.26, lr = 0.000965, beta = 1.33, T=0.75, sample_time = 1.112, loss = 1.19, val_loss = 0, train_time = 0.567, used_time = 2027.970
+
+average density of zeros=0.274	ones=0.31	twos=0.416
+3/512 samples conserved the density
+step = 1400, F = 0.4022, S/N = 1.18, E(generated)/N = 1.5822, E(ref)/N = 0.25217, E(equi)/N = 0.26, lr = 0.000952, beta = 1.33, T=0.75, sample_time = 1.130, loss = 1.19, val_loss = 0, train_time = 0.567, used_time = 2367.385
+
+average density of zeros=0.267	ones=0.29	twos=0.443
+3/512 samples conserved the density
+step = 1600, F = 0.4148, S/N = 1.169, E(generated)/N = 1.5841, E(ref)/N = 0.25528, E(equi)/N = 0.26, lr = 0.000938, beta = 1.33, T=0.75, sample_time = 1.122, loss = 1.19, val_loss = 0, train_time = 0.567, used_time = 2705.641
+
+average density of zeros=0.24	ones=0.301	twos=0.459
+13/512 samples conserved the density
+step = 2000, F = -0.7319, S/N = 1.175, E(generated)/N = 0.44343, E(ref)/N = 0.26259, E(equi)/N = 0.26, lr = 0.000904, beta = 1.33, T=0.75, sample_time = 0.966, loss = 0.633, val_loss = 0, train_time = 0.072, used_time = 1721.503
+
+average density of zeros=0.23	ones=0.276	twos=0.495
+13/512 samples conserved the density
+step = 2200, F = -0.7579, S/N = 1.186, E(generated)/N = 0.42795, E(ref)/N = 0.26794, E(equi)/N = 0.26, lr = 0.000885, beta = 1.33, T=0.75, sample_time = 0.965, loss = 0.631, val_loss = 0, train_time = 0.072, used_time = 1928.923
+
+average density of zeros=0.236	ones=0.291	twos=0.474
+20/512 samples conserved the density
+step = 2400, F = -0.7373, S/N = 1.169, E(generated)/N = 0.43164, E(ref)/N = 0.2623, E(equi)/N = 0.26, lr = 0.000864, beta = 1.33, T=0.75, sample_time = 0.949, loss = 0.609, val_loss = 0, train_time = 0.072, used_time = 2133.118
+
+average density of zeros=0.237	ones=0.283	twos=0.48
+14/512 samples conserved the density
+step = 2600, F = -0.7157, S/N = 1.154, E(generated)/N = 0.4388, E(ref)/N = 0.26671, E(equi)/N = 0.26, lr = 0.000842, beta = 1.33, T=0.75, sample_time = 0.948, loss = 0.614, val_loss = 0, train_time = 0.073, used_time = 2337.251
+
+average density of zeros=0.244	ones=0.309	twos=0.447
+17/512 samples conserved the density
+step = 2800, F = -0.7607, S/N = 1.203, E(generated)/N = 0.44271, E(ref)/N = 0.26548, E(equi)/N = 0.26, lr = 0.000819, beta = 1.33, T=0.75, sample_time = 0.941, loss = 0.612, val_loss = 0, train_time = 0.072, used_time = 2539.915
+
+average density of zeros=0.241	ones=0.29	twos=0.468
+16/512 samples conserved the density
+step = 3000, F = -0.7781, S/N = 1.203, E(generated)/N = 0.42441, E(ref)/N = 0.2594, E(equi)/N = 0.26, lr = 0.000794, beta = 1.33, T=0.75, sample_time = 0.946, loss = 0.601, val_loss = 0, train_time = 0.072, used_time = 2743.436
+
+average density of zeros=0.23	ones=0.3	twos=0.471
+20/512 samples conserved the density
+step = 3200, F = -0.7492, S/N = 1.174, E(generated)/N = 0.4247, E(ref)/N = 0.27112, E(equi)/N = 0.26, lr = 0.000768, beta = 1.33, T=0.75, sample_time = 0.943, loss = 0.604, val_loss = 0, train_time = 0.072, used_time = 2946.618
+
+average density of zeros=0.23	ones=0.291	twos=0.478
+20/512 samples conserved the density
+step = 3400, F = -0.7585, S/N = 1.184, E(generated)/N = 0.42513, E(ref)/N = 0.25608, E(equi)/N = 0.26, lr = 0.000741, beta = 1.33, T=0.75, sample_time = 0.949, loss = 0.602, val_loss = 0, train_time = 0.072, used_time = 3150.799
+
+average density of zeros=0.229	ones=0.298	twos=0.473
+14/512 samples conserved the density
+step = 3600, F = -0.7307, S/N = 1.164, E(generated)/N = 0.43294, E(ref)/N = 0.25694, E(equi)/N = 0.26, lr = 0.000713, beta = 1.33, T=0.75, sample_time = 0.949, loss = 0.59, val_loss = 0, train_time = 0.072, used_time = 3354.995
+
+average density of zeros=0.232	ones=0.297	twos=0.47
+22/512 samples conserved the density
+step = 3800, F = -0.7652, S/N = 1.176, E(generated)/N = 0.41059, E(ref)/N = 0.2636, E(equi)/N = 0.26, lr = 0.000684, beta = 1.33, T=0.75, sample_time = 0.945, loss = 0.596, val_loss = 0, train_time = 0.071, used_time = 3558.137
+
+average density of zeros=0.229	ones=0.293	twos=0.478
+14/512 samples conserved the density
+step = 4000, F = -0.7732, S/N = 1.186, E(generated)/N = 0.41254, E(ref)/N = 0.256, E(equi)/N = 0.26, lr = 0.000654, beta = 1.33, T=0.75, sample_time = 0.943, loss = 0.597, val_loss = 0, train_time = 0.071, used_time = 3761.019
+
+average density of zeros=0.238	ones=0.303	twos=0.459
+17/512 samples conserved the density
+step = 4200, F = -0.7928, S/N = 1.21, E(generated)/N = 0.41703, E(ref)/N = 0.26143, E(equi)/N = 0.26, lr = 0.000624, beta = 1.33, T=0.75, sample_time = 0.956, loss = 0.595, val_loss = 0, train_time = 0.072, used_time = 3966.689
+
+average density of zeros=0.235	ones=0.308	twos=0.458
+24/512 samples conserved the density
+step = 4400, F = -0.8214, S/N = 1.223, E(generated)/N = 0.40162, E(ref)/N = 0.25564, E(equi)/N = 0.26, lr = 0.000594, beta = 1.33, T=0.75, sample_time = 0.942, loss = 0.594, val_loss = 0, train_time = 0.071, used_time = 4169.462
+
+average density of zeros=0.225	ones=0.289	twos=0.486
+11/512 samples conserved the density
+step = 4600, F = -0.7715, S/N = 1.177, E(generated)/N = 0.40538, E(ref)/N = 0.26367, E(equi)/N = 0.26, lr = 0.000563, beta = 1.33, T=0.75, sample_time = 0.958, loss = 0.58, val_loss = 0, train_time = 0.072, used_time = 4375.448
+
+average density of zeros=0.223	ones=0.279	twos=0.498
+17/512 samples conserved the density
+step = 4800, F = -0.8032, S/N = 1.198, E(generated)/N = 0.39504, E(ref)/N = 0.261, E(equi)/N = 0.26, lr = 0.000531, beta = 1.33, T=0.75, sample_time = 0.946, loss = 0.578, val_loss = 0, train_time = 0.072, used_time = 4579.121
+
+average density of zeros=0.231	ones=0.286	twos=0.484
+13/512 samples conserved the density
+step = 5000, F = -0.8133, S/N = 1.213, E(generated)/N = 0.39974, E(ref)/N = 0.26338, E(equi)/N = 0.26, lr = 0.0005, beta = 1.33, T=0.75, sample_time = 0.942, loss = 0.582, val_loss = 0, train_time = 0.071, used_time = 4781.804
+
+average density of zeros=0.225	ones=0.285	twos=0.49
+20/512 samples conserved the density
+step = 5200, F = -0.7814, S/N = 1.183, E(generated)/N = 0.40162, E(ref)/N = 0.26309, E(equi)/N = 0.26, lr = 0.000468, beta = 1.33, T=0.75, sample_time = 0.947, loss = 0.579, val_loss = 0, train_time = 0.072, used_time = 4985.513
+
+average density of zeros=0.231	ones=0.288	twos=0.48
+21/512 samples conserved the density
+step = 5400, F = -0.8237, S/N = 1.213, E(generated)/N = 0.38925, E(ref)/N = 0.25904, E(equi)/N = 0.26, lr = 0.000437, beta = 1.33, T=0.75, sample_time = 0.948, loss = 0.57, val_loss = 0, train_time = 0.072, used_time = 5189.474
+
+average density of zeros=0.229	ones=0.285	twos=0.486
+12/512 samples conserved the density
+step = 5600, F = -0.7876, S/N = 1.183, E(generated)/N = 0.39518, E(ref)/N = 0.25832, E(equi)/N = 0.26, lr = 0.000406, beta = 1.33, T=0.75, sample_time = 0.946, loss = 0.573, val_loss = 0, train_time = 0.072, used_time = 5393.096
+
+average density of zeros=0.232	ones=0.282	twos=0.486
+14/512 samples conserved the density
+step = 5800, F = -0.8077, S/N = 1.199, E(generated)/N = 0.3912, E(ref)/N = 0.25796, E(equi)/N = 0.26, lr = 0.000376, beta = 1.33, T=0.75, sample_time = 0.944, loss = 0.575, val_loss = 0, train_time = 0.072, used_time = 5596.305
+
+average density of zeros=0.229	ones=0.287	twos=0.484
+14/512 samples conserved the density
+step = 6000, F = -0.8035, S/N = 1.2, E(generated)/N = 0.39641, E(ref)/N = 0.26288, E(equi)/N = 0.26, lr = 0.000345, beta = 1.33, T=0.75, sample_time = 0.953, loss = 0.581, val_loss = 0, train_time = 0.072, used_time = 5801.272
+
+average density of zeros=0.23	ones=0.293	twos=0.477
+14/512 samples conserved the density
+step = 6200, F = -0.8044, S/N = 1.199, E(generated)/N = 0.3941, E(ref)/N = 0.25984, E(equi)/N = 0.26, lr = 0.000316, beta = 1.33, T=0.75, sample_time = 0.948, loss = 0.579, val_loss = 0, train_time = 0.071, used_time = 6005.249
+
+average density of zeros=0.233	ones=0.295	twos=0.473
+27/512 samples conserved the density
+step = 6400, F = -0.85, S/N = 1.234, E(generated)/N = 0.38404, E(ref)/N = 0.26772, E(equi)/N = 0.26, lr = 0.000287, beta = 1.33, T=0.75, sample_time = 0.939, loss = 0.579, val_loss = 0, train_time = 0.072, used_time = 6207.507
+
+average density of zeros=0.229	ones=0.293	twos=0.478
+14/512 samples conserved the density
+step = 6600, F = -0.8197, S/N = 1.201, E(generated)/N = 0.38166, E(ref)/N = 0.25318, E(equi)/N = 0.26, lr = 0.000259, beta = 1.33, T=0.75, sample_time = 0.947, loss = 0.568, val_loss = 0, train_time = 0.071, used_time = 6411.194
+
+average density of zeros=0.237	ones=0.292	twos=0.471
+13/512 samples conserved the density
+step = 6800, F = -0.8669, S/N = 1.239, E(generated)/N = 0.37196, E(ref)/N = 0.25767, E(equi)/N = 0.26, lr = 0.000232, beta = 1.33, T=0.75, sample_time = 0.937, loss = 0.578, val_loss = 0, train_time = 0.071, used_time = 6612.716
+
+average density of zeros=0.231	ones=0.293	twos=0.477
+13/512 samples conserved the density
+WARNING:jax._src.lib.xla_bridge:No GPU/TPU found, falling back to CPU. (Set TF_CPP_MIN_LOG_LEVEL=0 and rerun for more info.)
+/home/ciarella/sync/AutoregressiveModels/spin_models/LATTICE_GLASS/patchgenerative_model_transformer_v2/main.py:245: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:199.)
+  patch_energy = torch.Tensor(np.asarray(latticeglass.patch_energy(val_patches, onedmask.cpu().detach().numpy(), nn_list_patch, args.q)))
+step = 7000, F = -0.8373, S/N = 1.224, E(generated)/N = 0.38672, E(ref)/N = 0.26577, E(equi)/N = 0.26, lr = 0.000206, beta = 1.33, T=0.75, sample_time = 0.945, loss = 0.573, val_loss = 0, train_time = 0.073, used_time = 6816.222
+
+average density of zeros=0.228	ones=0.291	twos=0.481
+15/512 samples conserved the density
+step = 7200, F = -0.8358, S/N = 1.222, E(generated)/N = 0.38592, E(ref)/N = 0.26859, E(equi)/N = 0.26, lr = 0.000181, beta = 1.33, T=0.75, sample_time = 0.947, loss = 0.564, val_loss = 0, train_time = 0.071, used_time = 7019.846
+
+average density of zeros=0.228	ones=0.291	twos=0.481
+16/512 samples conserved the density
+step = 7400, F = -0.816, S/N = 1.215, E(generated)/N = 0.39858, E(ref)/N = 0.26288, E(equi)/N = 0.26, lr = 0.000158, beta = 1.33, T=0.75, sample_time = 0.951, loss = 0.571, val_loss = 0, train_time = 0.072, used_time = 7224.471
+
+average density of zeros=0.234	ones=0.298	twos=0.468
+17/512 samples conserved the density
+step = 7600, F = -0.8586, S/N = 1.254, E(generated)/N = 0.39511, E(ref)/N = 0.25796, E(equi)/N = 0.26, lr = 0.000135, beta = 1.33, T=0.75, sample_time = 0.947, loss = 0.562, val_loss = 0, train_time = 0.072, used_time = 7428.328
+
+average density of zeros=0.239	ones=0.29	twos=0.471
+18/512 samples conserved the density
+step = 7800, F = -0.8476, S/N = 1.217, E(generated)/N = 0.36892, E(ref)/N = 0.25911, E(equi)/N = 0.26, lr = 0.000115, beta = 1.33, T=0.75, sample_time = 0.944, loss = 0.558, val_loss = 0, train_time = 0.071, used_time = 7631.312
+
+average density of zeros=0.233	ones=0.297	twos=0.47
+20/512 samples conserved the density
+step = 8000, F = -0.8627, S/N = 1.245, E(generated)/N = 0.38252, E(ref)/N = 0.25832, E(equi)/N = 0.26, lr = 9.54e-05, beta = 1.33, T=0.75, sample_time = 0.942, loss = 0.569, val_loss = 0, train_time = 0.072, used_time = 7834.046
+
+average density of zeros=0.228	ones=0.284	twos=0.488
+19/512 samples conserved the density
+step = 8200, F = -0.8502, S/N = 1.219, E(generated)/N = 0.36834, E(ref)/N = 0.26092, E(equi)/N = 0.26, lr = 7.78e-05, beta = 1.33, T=0.75, sample_time = 0.947, loss = 0.558, val_loss = 0, train_time = 0.071, used_time = 8037.681
+
+average density of zeros=0.226	ones=0.291	twos=0.482
+15/512 samples conserved the density
+step = 8400, F = -0.7987, S/N = 1.19, E(generated)/N = 0.39171, E(ref)/N = 0.26295, E(equi)/N = 0.26, lr = 6.18e-05, beta = 1.33, T=0.75, sample_time = 0.942, loss = 0.563, val_loss = 0, train_time = 0.072, used_time = 8240.330
+
+average density of zeros=0.236	ones=0.306	twos=0.458
+14/512 samples conserved the density
+step = 8600, F = -0.8585, S/N = 1.235, E(generated)/N = 0.37695, E(ref)/N = 0.26447, E(equi)/N = 0.26, lr = 4.75e-05, beta = 1.33, T=0.75, sample_time = 0.945, loss = 0.56, val_loss = 0, train_time = 0.071, used_time = 8443.747
+
+average density of zeros=0.228	ones=0.294	twos=0.478
+23/512 samples conserved the density
+step = 8800, F = -0.8363, S/N = 1.224, E(generated)/N = 0.38744, E(ref)/N = 0.25803, E(equi)/N = 0.26, lr = 3.51e-05, beta = 1.33, T=0.75, sample_time = 0.945, loss = 0.562, val_loss = 0, train_time = 0.073, used_time = 8647.306
+
+average density of zeros=0.237	ones=0.295	twos=0.469
+23/512 samples conserved the density
+step = 9000, F = -0.8517, S/N = 1.225, E(generated)/N = 0.37355, E(ref)/N = 0.2534, E(equi)/N = 0.26, lr = 2.44e-05, beta = 1.33, T=0.75, sample_time = 0.944, loss = 0.557, val_loss = 0, train_time = 0.072, used_time = 8850.428
+
+average density of zeros=0.23	ones=0.291	twos=0.479
+21/512 samples conserved the density
+step = 9200, F = -0.8489, S/N = 1.229, E(generated)/N = 0.38006, E(ref)/N = 0.26345, E(equi)/N = 0.26, lr = 1.57e-05, beta = 1.33, T=0.75, sample_time = 0.950, loss = 0.559, val_loss = 0, train_time = 0.071, used_time = 9054.739
+
+average density of zeros=0.231	ones=0.296	twos=0.473
+18/512 samples conserved the density
+step = 9400, F = -0.8248, S/N = 1.205, E(generated)/N = 0.38043, E(ref)/N = 0.25694, E(equi)/N = 0.26, lr = 8.83e-06, beta = 1.33, T=0.75, sample_time = 0.954, loss = 0.559, val_loss = 0, train_time = 0.072, used_time = 9259.888
+
+average density of zeros=0.225	ones=0.293	twos=0.482
+19/512 samples conserved the density
+step = 9600, F = -0.8391, S/N = 1.221, E(generated)/N = 0.38238, E(ref)/N = 0.25492, E(equi)/N = 0.26, lr = 3.92e-06, beta = 1.33, T=0.75, sample_time = 0.950, loss = 0.546, val_loss = 0, train_time = 0.072, used_time = 9464.243
+
+average density of zeros=0.229	ones=0.293	twos=0.478
+20/512 samples conserved the density
+step = 9800, F = -0.8466, S/N = 1.221, E(generated)/N = 0.37391, E(ref)/N = 0.26931, E(equi)/N = 0.26, lr = 9.77e-07, beta = 1.33, T=0.75, sample_time = 0.941, loss = 0.564, val_loss = 0, train_time = 0.071, used_time = 9666.509
+
+average density of zeros=0.23	ones=0.289	twos=0.482
+21/512 samples conserved the density
+step = 10000, F = -0.8445, S/N = 1.221, E(generated)/N = 0.37688, E(ref)/N = 0.25694, E(equi)/N = 0.26, lr = 2.47e-11, beta = 1.33, T=0.75, sample_time = 0.956, loss = 0.551, val_loss = 0, train_time = 0.072, used_time = 9872.046
+
+average density of zeros=0.234	ones=0.299	twos=0.467
+18/512 samples conserved the density
+step = 10200, F = -0.8709, S/N = 1.251, E(generated)/N = 0.38035, E(ref)/N = 0.25297, E(equi)/N = 0.26, lr = 9.97e-07, beta = 1.33, T=0.75, sample_time = 0.955, loss = 0.557, val_loss = 0, train_time = 0.072, used_time = 10077.400
+
+average density of zeros=0.233	ones=0.296	twos=0.471
+15/512 samples conserved the density
+step = 10400, F = -0.8479, S/N = 1.23, E(generated)/N = 0.38187, E(ref)/N = 0.26078, E(equi)/N = 0.26, lr = 3.96e-06, beta = 1.33, T=0.75, sample_time = 0.941, loss = 0.563, val_loss = 0, train_time = 0.072, used_time = 10280.019
+
+average density of zeros=0.226	ones=0.287	twos=0.486
+17/512 samples conserved the density
+step = 10600, F = -0.84, S/N = 1.217, E(generated)/N = 0.37703, E(ref)/N = 0.25586, E(equi)/N = 0.26, lr = 8.89e-06, beta = 1.33, T=0.75, sample_time = 0.956, loss = 0.558, val_loss = 0, train_time = 0.071, used_time = 10485.590
+
+average density of zeros=0.226	ones=0.29	twos=0.484
+16/512 samples conserved the density
+step = 10800, F = -0.8261, S/N = 1.207, E(generated)/N = 0.38137, E(ref)/N = 0.2623, E(equi)/N = 0.26, lr = 1.57e-05, beta = 1.33, T=0.75, sample_time = 0.941, loss = 0.565, val_loss = 0, train_time = 0.071, used_time = 10688.049
+
+average density of zeros=0.226	ones=0.296	twos=0.478
+22/512 samples conserved the density
+step = 11000, F = -0.8142, S/N = 1.201, E(generated)/N = 0.38723, E(ref)/N = 0.26049, E(equi)/N = 0.26, lr = 2.45e-05, beta = 1.33, T=0.75, sample_time = 0.977, loss = 0.562, val_loss = 0, train_time = 0.072, used_time = 10897.913
+
+average density of zeros=0.231	ones=0.29	twos=0.48
+16/512 samples conserved the density
+step = 11200, F = -0.8404, S/N = 1.216, E(generated)/N = 0.37587, E(ref)/N = 0.2602, E(equi)/N = 0.26, lr = 3.52e-05, beta = 1.33, T=0.75, sample_time = 1.041, loss = 0.56, val_loss = 0, train_time = 0.073, used_time = 11120.762
+
+average density of zeros=0.224	ones=0.287	twos=0.489
+9/512 samples conserved the density
+step = 11400, F = -0.8309, S/N = 1.206, E(generated)/N = 0.37543, E(ref)/N = 0.26584, E(equi)/N = 0.26, lr = 4.77e-05, beta = 1.33, T=0.75, sample_time = 1.056, loss = 0.56, val_loss = 0, train_time = 0.073, used_time = 11346.734
+
+average density of zeros=0.23	ones=0.291	twos=0.478
+20/512 samples conserved the density
+step = 11600, F = -0.8296, S/N = 1.209, E(generated)/N = 0.3797, E(ref)/N = 0.26895, E(equi)/N = 0.26, lr = 6.19e-05, beta = 1.33, T=0.75, sample_time = 1.067, loss = 0.563, val_loss = 0, train_time = 0.074, used_time = 11574.875
+
+average density of zeros=0.228	ones=0.288	twos=0.484
+14/512 samples conserved the density
+step = 11800, F = -0.8343, S/N = 1.216, E(generated)/N = 0.38122, E(ref)/N = 0.25745, E(equi)/N = 0.26, lr = 7.79e-05, beta = 1.33, T=0.75, sample_time = 1.050, loss = 0.553, val_loss = 0, train_time = 0.074, used_time = 11799.700
+
+average density of zeros=0.226	ones=0.289	twos=0.484
+22/512 samples conserved the density
+
+average density of zeros=0.264	ones=0.282	twos=0.454
+8/512 samples conserved the density
+step = 1800, F = 0.3835, S/N = 1.158, E(generated)/N = 1.5418, E(ref)/N = 0.25781, E(equi)/N = 0.26, lr = 0.000922, beta = 1.33, T=0.75, sample_time = 1.129, loss = 1.18, val_loss = 0, train_time = 0.563, used_time = 3044.162
+
+average density of zeros=0.25	ones=0.285	twos=0.465
+10/512 samples conserved the density
+step = 2000, F = 0.5136, S/N = 1.09, E(generated)/N = 1.6039, E(ref)/N = 0.25846, E(equi)/N = 0.26, lr = 0.000904, beta = 1.33, T=0.75, sample_time = 1.128, loss = 1.18, val_loss = 0, train_time = 0.554, used_time = 3380.614
+
+average density of zeros=0.255	ones=0.302	twos=0.443
+6/512 samples conserved the density
+step = 2200, F = 0.5045, S/N = 1.09, E(generated)/N = 1.594, E(ref)/N = 0.26194, E(equi)/N = 0.26, lr = 0.000885, beta = 1.33, T=0.75, sample_time = 1.126, loss = 1.17, val_loss = 0, train_time = 0.553, used_time = 3716.846
+
+average density of zeros=0.245	ones=0.324	twos=0.431
+13/512 samples conserved the density
+step = 2400, F = 0.6374, S/N = 1.081, E(generated)/N = 1.718, E(ref)/N = 0.25969, E(equi)/N = 0.26, lr = 0.000864, beta = 1.33, T=0.75, sample_time = 1.109, loss = 1.17, val_loss = 0, train_time = 0.553, used_time = 4049.224
+
+average density of zeros=0.245	ones=0.31	twos=0.445
+9/512 samples conserved the density
+step = 2600, F = 0.5835, S/N = 1.073, E(generated)/N = 1.6566, E(ref)/N = 0.26295, E(equi)/N = 0.26, lr = 0.000842, beta = 1.33, T=0.75, sample_time = 1.110, loss = 1.17, val_loss = 0, train_time = 0.551, used_time = 4381.758
+
+average density of zeros=0.256	ones=0.296	twos=0.448
+8/512 samples conserved the density
+step = 2800, F = 0.5247, S/N = 1.08, E(generated)/N = 1.6045, E(ref)/N = 0.2594, E(equi)/N = 0.26, lr = 0.000819, beta = 1.33, T=0.75, sample_time = 1.111, loss = 1.17, val_loss = 0, train_time = 0.551, used_time = 4714.051
+
+average density of zeros=0.234	ones=0.29	twos=0.476
+6/512 samples conserved the density
+step = 3000, F = 0.541, S/N = 1.057, E(generated)/N = 1.5984, E(ref)/N = 0.25629, E(equi)/N = 0.26, lr = 0.000794, beta = 1.33, T=0.75, sample_time = 1.137, loss = 1.17, val_loss = 0, train_time = 0.552, used_time = 5051.695
+
+average density of zeros=0.238	ones=0.295	twos=0.468
+8/512 samples conserved the density
+step = 3200, F = 0.5406, S/N = 1.067, E(generated)/N = 1.6076, E(ref)/N = 0.26353, E(equi)/N = 0.26, lr = 0.000768, beta = 1.33, T=0.75, sample_time = 1.109, loss = 1.17, val_loss = 0, train_time = 0.551, used_time = 5384.007
+
+average density of zeros=0.237	ones=0.297	twos=0.466
+11/512 samples conserved the density
+step = 3400, F = 0.5871, S/N = 1.061, E(generated)/N = 1.6477, E(ref)/N = 0.26664, E(equi)/N = 0.26, lr = 0.000741, beta = 1.33, T=0.75, sample_time = 1.125, loss = 1.17, val_loss = 0, train_time = 0.552, used_time = 5719.505
+
+average density of zeros=0.217	ones=0.315	twos=0.468
+7/512 samples conserved the density
+step = 3600, F = 0.6473, S/N = 1.057, E(generated)/N = 1.7042, E(ref)/N = 0.2594, E(equi)/N = 0.26, lr = 0.000713, beta = 1.33, T=0.75, sample_time = 1.117, loss = 1.17, val_loss = 0, train_time = 0.554, used_time = 6054.098
+
+average density of zeros=0.214	ones=0.331	twos=0.456
+12/512 samples conserved the density
+step = 3800, F = 0.7237, S/N = 1.056, E(generated)/N = 1.78, E(ref)/N = 0.25817, E(equi)/N = 0.26, lr = 0.000684, beta = 1.33, T=0.75, sample_time = 1.129, loss = 1.17, val_loss = 0, train_time = 0.554, used_time = 6390.690
+
+average density of zeros=0.221	ones=0.317	twos=0.462
+8/512 samples conserved the density
+step = 4000, F = 0.6608, S/N = 1.069, E(generated)/N = 1.7297, E(ref)/N = 0.26071, E(equi)/N = 0.26, lr = 0.000654, beta = 1.33, T=0.75, sample_time = 1.112, loss = 1.17, val_loss = 0, train_time = 0.552, used_time = 6723.409
+
+average density of zeros=0.169	ones=0.475	twos=0.356
+4/512 samples conserved the density
+step = 4200, F = 1.343, S/N = 1.023, E(generated)/N = 2.366, E(ref)/N = 0.26331, E(equi)/N = 0.26, lr = 0.000624, beta = 1.33, T=0.75, sample_time = 1.121, loss = 1.17, val_loss = 0, train_time = 0.551, used_time = 7058.187
+
+average density of zeros=0.208	ones=0.405	twos=0.388
+6/512 samples conserved the density
+step = 4400, F = 0.8879, S/N = 1.06, E(generated)/N = 1.9484, E(ref)/N = 0.26678, E(equi)/N = 0.26, lr = 0.000594, beta = 1.33, T=0.75, sample_time = 1.115, loss = 1.17, val_loss = 0, train_time = 0.550, used_time = 7391.189
+
+average density of zeros=0.184	ones=0.413	twos=0.403
+4/512 samples conserved the density
+step = 4600, F = 1.056, S/N = 1.045, E(generated)/N = 2.1003, E(ref)/N = 0.26635, E(equi)/N = 0.26, lr = 0.000563, beta = 1.33, T=0.75, sample_time = 1.113, loss = 1.16, val_loss = 0, train_time = 0.551, used_time = 7724.351
+
+average density of zeros=0.18	ones=0.435	twos=0.385
+4/512 samples conserved the density
+step = 4800, F = 1.143, S/N = 1.038, E(generated)/N = 2.1811, E(ref)/N = 0.25998, E(equi)/N = 0.26, lr = 0.000531, beta = 1.33, T=0.75, sample_time = 1.118, loss = 1.16, val_loss = 0, train_time = 0.552, used_time = 8058.379
+
+average density of zeros=0.255	ones=0.284	twos=0.461
+6/512 samples conserved the density
+step = 5000, F = 0.4918, S/N = 1.109, E(generated)/N = 1.601, E(ref)/N = 0.25658, E(equi)/N = 0.26, lr = 0.0005, beta = 1.33, T=0.75, sample_time = 1.113, loss = 1.17, val_loss = 0, train_time = 0.551, used_time = 8391.026
+
+average density of zeros=0.263	ones=0.277	twos=0.46
+11/512 samples conserved the density
+step = 5200, F = 0.4905, S/N = 1.065, E(generated)/N = 1.5558, E(ref)/N = 0.25977, E(equi)/N = 0.26, lr = 0.000468, beta = 1.33, T=0.75, sample_time = 1.129, loss = 1.16, val_loss = 0, train_time = 0.549, used_time = 8726.981
+
+average density of zeros=0.245	ones=0.305	twos=0.45
+15/512 samples conserved the density
+step = 5400, F = 0.5635, S/N = 1.066, E(generated)/N = 1.6298, E(ref)/N = 0.26389, E(equi)/N = 0.26, lr = 0.000437, beta = 1.33, T=0.75, sample_time = 1.128, loss = 1.16, val_loss = 0, train_time = 0.548, used_time = 9062.290
+
+average density of zeros=0.264	ones=0.268	twos=0.468
+11/512 samples conserved the density
+step = 5600, F = 0.4772, S/N = 1.061, E(generated)/N = 1.5386, E(ref)/N = 0.25723, E(equi)/N = 0.26, lr = 0.000406, beta = 1.33, T=0.75, sample_time = 1.121, loss = 1.16, val_loss = 0, train_time = 0.548, used_time = 9396.602
+
+average density of zeros=0.237	ones=0.295	twos=0.467
+3/512 samples conserved the density
+step = 5800, F = 0.5847, S/N = 1.058, E(generated)/N = 1.6426, E(ref)/N = 0.25731, E(equi)/N = 0.26, lr = 0.000376, beta = 1.33, T=0.75, sample_time = 1.218, loss = 1.16, val_loss = 0, train_time = 0.550, used_time = 9750.208
+
+average density of zeros=0.231	ones=0.323	twos=0.446
+10/512 samples conserved the density
+step = 6000, F = 0.659, S/N = 1.064, E(generated)/N = 1.7229, E(ref)/N = 0.2547, E(equi)/N = 0.26, lr = 0.000345, beta = 1.33, T=0.75, sample_time = 1.198, loss = 1.17, val_loss = 0, train_time = 0.551, used_time = 10099.990
+
+average density of zeros=0.236	ones=0.312	twos=0.452
+8/512 samples conserved the density
+step = 6200, F = 0.6071, S/N = 1.065, E(generated)/N = 1.6725, E(ref)/N = 0.27083, E(equi)/N = 0.26, lr = 0.000316, beta = 1.33, T=0.75, sample_time = 1.207, loss = 1.16, val_loss = 0, train_time = 0.552, used_time = 10452.269
+
+average density of zeros=0.198	ones=0.394	twos=0.408
+6/512 samples conserved the density
+step = 6400, F = 0.9572, S/N = 1.055, E(generated)/N = 2.0124, E(ref)/N = 0.25506, E(equi)/N = 0.26, lr = 0.000287, beta = 1.33, T=0.75, sample_time = 1.227, loss = 1.17, val_loss = 0, train_time = 0.552, used_time = 10808.017
+
+average density of zeros=0.217	ones=0.365	twos=0.418
+5/512 samples conserved the density
+step = 6600, F = 0.7757, S/N = 1.069, E(generated)/N = 1.8448, E(ref)/N = 0.26266, E(equi)/N = 0.26, lr = 0.000259, beta = 1.33, T=0.75, sample_time = 1.211, loss = 1.17, val_loss = 0, train_time = 0.552, used_time = 11160.991
+
+average density of zeros=0.255	ones=0.277	twos=0.469
+11/512 samples conserved the density
+n = 1000
+q = 3
+c = 40
+graph_seed = None
+beta = 1.0
+T = 0.75
+ARtype = maxlike
+net = nade
+net_depth = 3
+net_width = 64
+graph_depth = 3
+nheads = 2
+hid_width = 150
+half_kernel_size = 1
+res_block = False
+final_conv = False
+regularization = None
+lambdal1 = 1e-06
+lambdal2 = 1e-06
+dropout_val = 0.1
+dtype = float32
+bias = True
+acceptance = False
+qsym = False
+site_ordering = False
+sample_permute = False
+x_hat_clip = 0
+epsilon = 1e-07
+M = 1000
+MCsteps = 25000
+seed = 74041522
+optimizer = adam
+batch_size = 512
+sample_size = 1000
+val_sample_size = 1000
+samples_for_autocorr = 1000
+globMC = None
+lr = 0.001
+max_step = 1000000
+lr_schedule = True
+early_stopping = False
+beta_anneal = 0
+clip_grad = 1.0
+no_stdout = False
+clear_checkpoint = False
+print_step = 200
+save_step = 500
+visual_step = 100
+save_sample = False
+print_sample = 1
+print_grad = False
+cuda = 6
+out_infix = _2e9
+out_dir = out
+start_from = 0
+device = cuda:0
+out_filename = out/1000_None_beta1_maxlike_nd3_nw64_nade_bias_lrs_cg1_2e9/out
+
+Transformer(
+  (embedding): Embedding(5, 512)
+  (pos_encoder): PositionalEncoding(
+    (dropout): Dropout(p=0.1, inplace=False)
+  )
+  (transformer_encoder): TransformerEncoder(
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+        )
+        (linear1): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=512, out_features=512, bias=True)
+        (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+        )
+        (linear1): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=512, out_features=512, bias=True)
+        (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (transformer_decoder): TransformerDecoder(
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+        )
+        (multihead_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+        )
+        (linear1): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=512, out_features=512, bias=True)
+        (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (norm3): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+      )
+      (1): TransformerDecoderLayer(
+        (self_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+        )
+        (multihead_attn): MultiheadAttention(
+          (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+        )
+        (linear1): Linear(in_features=512, out_features=512, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (linear2): Linear(in_features=512, out_features=512, bias=True)
+        (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (norm3): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (dropout1): Dropout(p=0.1, inplace=False)
+        (dropout2): Dropout(p=0.1, inplace=False)
+        (dropout3): Dropout(p=0.1, inplace=False)
+      )
+    )
+  )
+  (fc): Linear(in_features=512, out_features=5, bias=True)
+)
+
+Total number of trainable parameters: 8420357
+init_time = 2.530
+
+*** Patch size 5 from a box of size 10
+%%%% Loading the full sample
+*** Equilibrium E/N=0.2600036859512329
+## I ordered the sites in the following way:
+[0, 25, 50, 75, 100, 5, 30, 55, 80, 105, 10, 35, 60, 85, 110, 15, 40, 65, 90, 115, 20, 45, 70, 95, 120, 4, 29, 54, 79, 104, 9, 34, 59, 84, 109, 14, 39, 64, 89, 114, 19, 44, 69, 94, 119, 24, 49, 74, 99, 124, 1, 26, 51, 76, 101, 21, 46, 71, 96, 121, 2, 27, 52, 77, 102, 22, 47, 72, 97, 122, 3, 28, 53, 78, 103, 23, 48, 73, 98, 123, 6, 106, 11, 111, 16, 116, 7, 107, 12, 112, 17, 117, 8, 108, 13, 113, 18, 118, 62, 61, 63, 57, 67, 37, 87, 32, 82, 42, 92, 36, 86, 38, 88, 56, 66, 58, 68, 31, 81, 41, 91, 33, 83, 43, 93]
+storing info
+Preparing validation sample...
+The validation patches have E/N=0.25745081901550293
+Training...
+
+average density of zeros=0.383	ones=0.197	twos=0.42
+4/512 samples conserved the density
+step = 0, F = -0.2132, S/N = 1.653, E(generated)/N = 1.4397, E(ref)/N = 0.25564, E(equi)/N = 0.26, lr = 0.001, beta = 0, T=1e+06, sample_time = 3.806, loss = 1.97, val_loss = 0, train_time = 0.180, used_time = 3.986
+
+average density of zeros=0.255	ones=0.302	twos=0.443
+14/512 samples conserved the density
+step = 200, F = 0.5027, S/N = 1.123, E(generated)/N = 1.6252, E(ref)/N = 0.25521, E(equi)/N = 0.26, lr = 0.000999, beta = 1.33, T=0.75, sample_time = 1.082, loss = 1.12, val_loss = 0, train_time = 0.178, used_time = 256.227
+
+average density of zeros=0.249	ones=0.281	twos=0.47
+6/512 samples conserved the density
+step = 400, F = 0.3542, S/N = 1.087, E(generated)/N = 1.4409, E(ref)/N = 0.26027, E(equi)/N = 0.26, lr = 0.000996, beta = 1.33, T=0.75, sample_time = 1.084, loss = 1.01, val_loss = 0, train_time = 0.179, used_time = 508.842
+
+average density of zeros=0.242	ones=0.318	twos=0.439
+8/512 samples conserved the density
+step = 600, F = 0.1218, S/N = 1.148, E(generated)/N = 1.2697, E(ref)/N = 0.26244, E(equi)/N = 0.26, lr = 0.000991, beta = 1.33, T=0.75, sample_time = 1.084, loss = 0.96, val_loss = 0, train_time = 0.179, used_time = 761.656
+
+average density of zeros=0.248	ones=0.3	twos=0.452
+9/512 samples conserved the density
+step = 800, F = -0.1448, S/N = 1.201, E(generated)/N = 1.0564, E(ref)/N = 0.26519, E(equi)/N = 0.26, lr = 0.000984, beta = 1.33, T=0.75, sample_time = 1.086, loss = 0.915, val_loss = 0, train_time = 0.179, used_time = 1014.639
+
+average density of zeros=0.222	ones=0.28	twos=0.498
+5/512 samples conserved the density
+step = 1000, F = -0.1389, S/N = 1.185, E(generated)/N = 1.0459, E(ref)/N = 0.26367, E(equi)/N = 0.26, lr = 0.000975, beta = 1.33, T=0.75, sample_time = 1.091, loss = 0.909, val_loss = 0, train_time = 0.180, used_time = 1268.830
+
+average density of zeros=0.246	ones=0.297	twos=0.457
+7/512 samples conserved the density
+step = 1200, F = -0.2106, S/N = 1.215, E(generated)/N = 1.0048, E(ref)/N = 0.25615, E(equi)/N = 0.26, lr = 0.000965, beta = 1.33, T=0.75, sample_time = 1.096, loss = 0.897, val_loss = 0, train_time = 0.179, used_time = 1524.020
+
+average density of zeros=0.254	ones=0.305	twos=0.441
+17/512 samples conserved the density
+step = 1400, F = -0.2659, S/N = 1.234, E(generated)/N = 0.96817, E(ref)/N = 0.26548, E(equi)/N = 0.26, lr = 0.000952, beta = 1.33, T=0.75, sample_time = 1.084, loss = 0.886, val_loss = 0, train_time = 0.179, used_time = 1776.674
+
+average density of zeros=0.24	ones=0.318	twos=0.442
+11/512 samples conserved the density
+step = 1600, F = -0.2563, S/N = 1.265, E(generated)/N = 1.0087, E(ref)/N = 0.25969, E(equi)/N = 0.26, lr = 0.000938, beta = 1.33, T=0.75, sample_time = 1.082, loss = 0.886, val_loss = 0, train_time = 0.179, used_time = 2029.124
+
+average density of zeros=0.231	ones=0.312	twos=0.457
+11/512 samples conserved the density

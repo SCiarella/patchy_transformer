@@ -51,7 +51,7 @@ def main():
 
     ntokens = 5  # size of vocabulary
     max_output_length = 29 #extra end of word token
-    net = Transformer(ntokens, max_output_length, 2**10).to(args.device)
+    net = Transformer(ntokens, max_output_length, 2**9).to(args.device)
     net.to(args.device)
     my_log('{}\n'.format(net))
 
